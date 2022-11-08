@@ -1,0 +1,11 @@
+---
+- name: cronjobs playbook
+  hosts: vmdemo
+  become: yes
+  become_user: root
+  tasks:
+  - name: upgrade the system
+    cron:
+      name: upgrade every hour
+      minute: "0"
+      job: sudo apt upgrade -y
