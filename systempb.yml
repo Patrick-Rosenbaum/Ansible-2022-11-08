@@ -1,0 +1,20 @@
+---
+- name: system control
+  hosts: vmdemo
+  become: yes
+  become_user: root
+  tasks:
+    - name: system ufw stop
+      systemd:
+        state: stopped
+        name: ufw
+
+    - name: system ufw start
+      systemd:
+        state: started
+        name: ufw
+
+    - name: system ssh restart
+      systemd:
+        state: restarted
+        name: ssh
