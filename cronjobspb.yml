@@ -9,3 +9,9 @@
       name: upgrade every hour
       minute: "0"
       job: sudo apt upgrade -y
+
+  - name: date
+    cron:
+      name: save the date every 5 minutes
+      minute: "*/5"
+      job: date >> /tmp/datetime.txt
